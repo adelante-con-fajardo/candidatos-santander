@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dignidad y Compromiso - Santander</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
     <!-- Iconos de FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -15,7 +17,6 @@
             --color-borde: #000;
             --bg-body: #f8f9fa;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-body);
@@ -25,7 +26,6 @@
             flex-direction: column;
             align-items: center;
         }
-
         /* --- ENCABEZADO --- */
         .header-dignidad {
             background: white;
@@ -39,15 +39,12 @@
             position: relative;
             border: 1px solid rgba(123, 31, 162, 0.1);
         }
-
         .bandera-partido {
             height: 10px;
             width: 100%;
             background: linear-gradient(90deg, var(--color-morado-oscuro) 0%, var(--color-morado-medio) 100%);
         }
-
         .header-content { padding: 35px 25px; }
-
         .header-dignidad h1 {
             color: #333;
             text-transform: uppercase;
@@ -57,14 +54,12 @@
             font-weight: 800;
             letter-spacing: -0.5px;
         }
-
         .header-dignidad h1 span {
             color: var(--color-morado-oscuro);
             display: block;
             font-size: 2.8rem;
             text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
         }
-
         .mensaje-persuasivo {
             font-size: 1.2rem;
             color: #555;
@@ -78,9 +73,7 @@
             border-radius: 10px;
             border-left: 5px solid var(--color-morado-medio);
         }
-
         .mensaje-persuasivo strong { color: var(--color-morado-oscuro); font-weight: 900; }
-
         .cta-box {
             background: linear-gradient(135deg, var(--color-morado-oscuro) 0%, var(--color-morado-medio) 100%);
             color: white;
@@ -94,12 +87,10 @@
             cursor: pointer;
             text-decoration: none;
         }
-
         .cta-box:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 25px rgba(123, 31, 162, 0.6);
         }
-
         .cta-sub {
             display: block;
             font-size: 0.9rem;
@@ -107,7 +98,6 @@
             opacity: 0.9;
             margin-top: 5px;
         }
-
         /* --- TARJETONES --- */
         .seccion-electoral {
             margin-bottom: 10px;
@@ -115,7 +105,6 @@
             flex-direction: column;
             align-items: center;
         }
-
         .titulo-tarjeton {
             font-size: 1.5rem;
             font-weight: 800;
@@ -123,7 +112,6 @@
             text-transform: uppercase;
             color: #333;
         }
-
         .tarjeta-container {
             background-color: white;
             border: 3px solid var(--color-borde);
@@ -135,7 +123,6 @@
             max-width: 95%;
             width: fit-content;
         }
-
         .info-partido {
             display: flex;
             flex-direction: column;
@@ -144,22 +131,18 @@
             width: 160px;
             text-align: center;
         }
-
         .info-partido img {
             width: 100%;
             height: auto;
             object-fit: contain;
             margin: 10px 0;
         }
-
         .texto-superior, .texto-inferior {
             font-weight: bold;
             font-size: 0.8rem;
             color: #000;
         }
-
         .contenedor-numeros { display: grid; align-content: center; }
-
         .numero {
             border: 2px solid #000;
             border-radius: 8px;
@@ -172,45 +155,49 @@
             cursor: default;
             transition: transform 0.1s;
         }
-
         .seleccionado {
-            background-color: var(--color-morado-claro); /* Morado Claro */
+            background-color: var(--color-morado-claro);
             cursor: pointer;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
         .seleccionado:hover {
             background-color: var(--color-morado-medio);
             color: white;
             transform: scale(1.1);
         }
-
+        /* === NUEVO: Subrayado FUERTE al hacer clic === */
+        .numero.seleccionado.activo {
+            background-color: var(--color-morado-medio) !important;
+            color: white !important;
+            border: 4px solid var(--color-morado-oscuro);
+            box-shadow: 0 4px 15px rgba(123, 31, 162, 0.5);
+            text-decoration: underline;
+            text-decoration-color: var(--color-acento);
+            text-underline-offset: 6px;
+            transform: scale(1.12);
+        }
         .grilla-senado { grid-template-columns: repeat(12, 1fr); gap: 6px; }
         .grilla-senado .numero { width: 35px; height: 28px; font-size: 14px; }
-
         .grilla-camara { grid-template-columns: repeat(3, 1fr); gap: 15px; }
         .grilla-camara .numero { width: 70px; height: 40px; font-size: 18px; border-radius: 12px; }
-
         /* --- ESTILOS DEL MODAL MEJORADO --- */
         .modal-overlay {
             display: none;
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Fondo más oscuro */
+            background-color: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
             z-index: 2000;
-            padding: 15px; /* Padding para que no toque los bordes en movil */
+            padding: 15px;
             box-sizing: border-box;
         }
-
         .card {
             background: white;
             width: 100%;
             max-width: 450px;
-            /* Altura dinámica con scroll interno si es necesario */
-            max-height: 90vh; 
+            max-height: 90vh;
             display: flex;
             flex-direction: column;
             border-radius: 20px;
@@ -219,13 +206,10 @@
             animation: zoomIn 0.3s ease-out;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
-
         @keyframes zoomIn {
             from { transform: scale(0.9); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
-
-        /* Botón cerrar flotante pero fijo relativo a la tarjeta */
         .close-btn {
             position: absolute;
             top: 15px;
@@ -244,57 +228,59 @@
             border: 2px solid rgba(255,255,255,0.3);
         }
         .close-btn:hover { background: #d62027; border-color: white; }
-
-        /* Imagen fija arriba */
         .card-img-top {
             width: 100%;
-            height: 280px; /* Altura fija para la imagen */
+            height: 280px;
             object-fit: cover;
-            object-position: top center; /* Enfocar rostros */
-            flex-shrink: 0; /* Evita que la imagen se aplaste */
+            object-position: top center;
+            flex-shrink: 0;
             background-color: #eee;
         }
-
-        /* Cuerpo con scroll */
         .card-body {
             padding: 25px 30px;
             text-align: center;
-            overflow-y: auto; /* Scroll vertical si el texto es largo */
-            /* Estilos para el scrollbar */
+            overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: var(--color-morado-medio) #f1f1f1;
         }
-
-        /* Scrollbar Webkit (Chrome/Safari) */
         .card-body::-webkit-scrollbar { width: 8px; }
         .card-body::-webkit-scrollbar-track { background: #f1f1f1; }
         .card-body::-webkit-scrollbar-thumb { background: var(--color-morado-medio); border-radius: 4px; }
-
         .card-name {
             font-size: 26px;
             margin: 0 0 5px 0;
             color: var(--color-morado-oscuro);
             line-height: 1.2;
         }
-
         .card-slogan {
             font-style: italic;
-            color: #d62027; /* Rojo para resaltar */
+            color: #d62027;
             font-weight: 700;
             margin-bottom: 20px;
             font-size: 16px;
             border-bottom: 1px solid #eee;
             padding-bottom: 15px;
         }
-
+        /* === NUEVO: Número grande en el modal (SENADO 10, etc.) === */
+        .modal-number {
+            background: linear-gradient(90deg, var(--color-morado-oscuro), var(--color-morado-medio));
+            color: white;
+            padding: 8px 22px;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(74, 20, 140, 0.3);
+            letter-spacing: 1px;
+        }
         .card-bio {
             font-size: 15px;
             color: #444;
             line-height: 1.6;
             margin-bottom: 25px;
-            text-align: justify; /* Texto justificado para mejor lectura */
+            text-align: justify;
         }
-
         .social-container {
             background: #f9f9f9;
             padding: 15px;
@@ -304,15 +290,12 @@
             align-items: center;
             gap: 10px;
         }
-
         .social-label {
             font-size: 13px;
             color: #666;
             font-weight: bold;
             text-transform: uppercase;
         }
-
-        /* Colores redes sociales */
         .social-btn {
             width: 45px; height: 45px;
             border-radius: 50%;
@@ -321,14 +304,12 @@
             transition: transform 0.2s;
         }
         .social-btn:hover { transform: scale(1.15); }
-
         .bg-twitter { background-color: #000; }
         .bg-facebook { background-color: #1877F2; }
         .bg-whatsapp { background-color: #25D366; }
         .bg-instagram { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
         .bg-youtube { background-color: #FF0000; }
         .bg-default { background-color: #555; }
-
         /* Responsive */
         @media (max-width: 600px) {
             .header-dignidad h1 { font-size: 1.6rem; }
@@ -336,21 +317,19 @@
             .cta-box { padding: 15px 25px; width: 80%; }
             .tarjeta-container { flex-direction: column; gap: 20px; padding: 15px; }
             .grilla-senado { grid-template-columns: repeat(6, 1fr); }
-            
-            /* Ajustes Modal Movil */
             .card-img-top { height: 220px; }
             .card-name { font-size: 22px; }
+            .modal-number { font-size: 1.25rem; padding: 6px 18px; }
         }
     </style>
 </head>
 <body>
-
     <!-- ENCABEZADO -->
     <header class="header-dignidad">
         <div class="bandera-partido"></div>
         <div class="header-content">
             <h1>
-                Candidatos por 
+                Candidatos por
                 <span>Dignidad y Compromiso</span>
             </h1>
             <div class="mensaje-persuasivo">
@@ -364,7 +343,6 @@
             </a>
         </div>
     </header>
-
     <div id="tarjetones">
         <!-- SECCIÓN SENADO -->
         <div class="seccion-electoral">
@@ -378,7 +356,6 @@
                 <div class="contenedor-numeros grilla-senado" id="grid-senado"></div>
             </div>
         </div>
-
         <!-- SECCIÓN CÁMARA -->
         <div class="seccion-electoral">
             <div class="titulo-tarjeton">CÁMARA POR SANTANDER</div>
@@ -392,8 +369,7 @@
             </div>
         </div>
     </div>
-
-    <!-- MODAL (Oculto) -->
+    <!-- MODAL -->
     <div id="modal" class="modal-overlay" onclick="closeModal(event)">
         <article class="card" id="card-content" onclick="event.stopPropagation()">
             <!-- Se llena con JS -->
@@ -401,7 +377,7 @@
     </div>
 
     <script>
-        // --- 1. DATOS (JSON PROPORCIONADO) ---
+        // --- 1. DATOS (sin cambios) ---
         const candidatosData = {
             10:{
     "departamento": "Harold De Jesús Maestre Mercado",
@@ -817,70 +793,83 @@
           }
         };
 
-        // --- 2. RENDERIZADO ---
+        // --- 2. VARIABLE PARA SABER CUÁL NÚMERO ESTÁ ACTIVO ---
+        let currentActiveNumber = null;
+
+        // --- 3. RENDERIZADO DE GRILLAS ---
         function crearGrilla(contenedorId, inicio, fin, numerosResaltados) {
             const contenedor = document.getElementById(contenedorId);
-            
+            contenedor.innerHTML = ''; // limpiar por si acaso
+
             for (let i = inicio; i <= fin; i++) {
                 const div = document.createElement('div');
                 div.classList.add('numero');
                 div.textContent = i;
 
-                // Solo pintamos y damos click si está en el objeto de datos o es resaltado
                 if (candidatosData[i] || numerosResaltados.includes(i)) {
-                    // Si tienes datos, se resalta
                     div.classList.add('seleccionado');
-                    div.onclick = () => openModal(i);
-                }
 
+                    // === CLIC: subrayado FUERTE + mantener resaltado ===
+                    div.onclick = () => {
+                        // Quitar el subrayado fuerte al anterior
+                        if (currentActiveNumber && currentActiveNumber !== div) {
+                            currentActiveNumber.classList.remove('activo');
+                        }
+                        // Activar el nuevo
+                        div.classList.add('activo');
+                        currentActiveNumber = div;
+
+                        openModal(i);
+                    };
+                }
                 contenedor.appendChild(div);
             }
         }
 
-        // Definimos qué números tienen datos/color
+        // Definir números válidos
         const idsSenado = Object.keys(candidatosData).map(Number).filter(n => n <= 100);
         const idsCamara = Object.keys(candidatosData).map(Number).filter(n => n > 100);
 
         crearGrilla('grid-senado', 1, 100, idsSenado);
         crearGrilla('grid-camara', 101, 107, idsCamara);
 
-
-        // --- 3. MODAL ---
+        // --- 4. MODAL CON NÚMERO GRANDE ---
         const modal = document.getElementById('modal');
         const cardContent = document.getElementById('card-content');
 
         function openModal(idCandidato) {
             const data = candidatosData[idCandidato];
-            if (!data) return; 
+            if (!data) return;
 
-            // Construir botones de redes analizando el string URL
+            const tipoEleccion = idCandidato <= 100 ? 'SENADO' : 'CÁMARA POR SANTANDER';
+
             let redesHtml = '';
             if (Array.isArray(data.redes) && data.redes.length > 0) {
                 data.redes.forEach(url => {
                     let iconClass = 'fa-link';
                     let bgClass = 'bg-default';
-
                     if (url.includes('facebook')) { iconClass = 'fa-facebook-f'; bgClass = 'bg-facebook'; }
                     else if (url.includes('x.com') || url.includes('twitter')) { iconClass = 'fa-x-twitter'; bgClass = 'bg-twitter'; }
                     else if (url.includes('instagram')) { iconClass = 'fa-instagram'; bgClass = 'bg-instagram'; }
                     else if (url.includes('whatsapp')) { iconClass = 'fa-whatsapp'; bgClass = 'bg-whatsapp'; }
                     else if (url.includes('youtube')) { iconClass = 'fa-youtube'; bgClass = 'bg-youtube'; }
-
                     redesHtml += `<a href="${url}" target="_blank" class="social-btn ${bgClass}"><i class="fa-brands ${iconClass}"></i></a>`;
                 });
             } else {
                 redesHtml = '<span style="color:#999; font-size:12px">No disponibles</span>';
             }
 
-            // Inyectar HTML
             cardContent.innerHTML = `
                 <div class="close-btn" onclick="closeModal(event)"><i class="fa-solid fa-xmark"></i></div>
                 <img src="${data.imagen_url}" alt="${data.nombre}" class="card-img-top" onerror="this.src='https://via.placeholder.com/400x320?text=Sin+Imagen'">
                 <div class="card-body">
+                    <!-- NÚMERO GRANDE EN EL MODAL -->
+                    <div class="modal-number">${tipoEleccion} ${idCandidato}</div>
+                    
                     <h2 class="card-name">${data.nombre}</h2>
                     ${data.slogan ? `<div class="card-slogan"><i class="fa-solid fa-bullhorn"></i> ${data.slogan}</div>` : ''}
                     <p class="card-bio">${data.biografia || "Información en proceso de actualización."}</p>
-                    
+                   
                     <div class="social-container">
                         <span class="social-label">Síguelo en:</span>
                         <div style="display:flex; gap:8px;">
@@ -889,22 +878,20 @@
                     </div>
                 </div>
             `;
-
             modal.style.display = 'flex';
         }
 
         function closeModal(event) {
             modal.style.display = 'none';
+            // El número sigue subrayado fuerte en la grilla (último visto)
         }
 
-        // Cerrar con tecla Escape
+        // Cerrar con Escape
         document.addEventListener('keydown', function(event) {
             if (event.key === "Escape") {
                 modal.style.display = 'none';
             }
         });
-
     </script>
 </body>
 </html>
-
